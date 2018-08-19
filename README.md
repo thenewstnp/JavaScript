@@ -555,3 +555,64 @@ howmany	可选。该参数可指定返回的数组的最大长度。如果设置
     ```
 
 # 面向对象
+## 创建对象得到方法
+* 创建对象的同时为该对象添加属性和方法
+1. 字面量方式创建对象
+    ```js
+    var obj = {
+    height: 180,
+    weight: 150,
+    age: 22,
+    play: function () {
+        console.log(`玩游戏`);
+    }
+    };
+
+    // 访问对象的属性
+    // 1. 通过点语法访问
+
+    console.log(obj.height);
+    console.log(obj.weight);
+    obj.play(); // 调用对象的方法
+
+    // 2. 通过字符串方式获取对象属性
+
+    console.log(obj['weight']);
+    console.log(obj['height']);
+    ```
+2. 通过Object()构造函数创建对象
+    ```js
+    var obj = new Object();
+
+    obj.name = 'tomcat';
+
+    obj.age = 22;
+
+    obj.phone = 10086;
+
+    obj.play = function() {
+        console.log(`打游戏`);
+    }
+
+
+
+    function createObjectFactory(name, age, play) {
+        let obj = new Object();
+
+        obj.name = name;
+
+        obj.age = age;
+
+        obj.play = function(value) {
+            console.log(value);
+        }
+
+        return obj;
+    }
+
+    var rs = createObjectFactory('刘泽', 20);
+
+    console.log(rs);
+
+    rs.play('打游戏');
+    ```
