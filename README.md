@@ -616,3 +616,43 @@ howmany	可选。该参数可指定返回的数组的最大长度。如果设置
 
     rs.play('打游戏');
     ```
+3. 自定义构造函数创建对象
+* 构造函数首字母必须大写（约定俗成）
+* instanceof运算符用来判断一个构造函数的prototype属性所指向的对象是否存在另外一个要检测对象的原型链上
+    ```js
+    function Person(name, age, height, weight) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        // ......
+    }
+
+    var p1 = new Person('tom', 22, '180', '80');
+
+    console.log(p1);
+
+
+
+
+    function Girlfriend(name, age, height, weight, hobby) {
+    
+        this.name = name;
+
+        this.age = age;
+
+        this.gender = '女';
+
+        this.height = height;
+
+        this.weight = weight;
+
+        this.hobby = hobby;
+    }
+
+    var girlfriend = new Girlfriend('晓芳', 22, 175, 130, '打游戏');
+
+    console.log(girlfriend);
+
+    console.log(girlfriend instanceof Girlfriend);// true
+    ```
